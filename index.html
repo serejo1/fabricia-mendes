@@ -15,7 +15,7 @@
 <header class="top">
 <div class="wrap nav">
 <a class="brand" href="#inicio" aria-label="Fabrícia Mendes, início"><span class="monogram" aria-hidden="true">fm</span><span>Fabrícia Mendes<small>Nutricionista</small></span></a>
-<nav aria-label="Navegação principal"><a href="#sobre">Sobre mim</a><a href="#consulta">A consulta</a><a href="#investimento">Investimento</a><a href="#duvidas">Dúvidas</a></nav>
+<nav aria-label="Navegação principal"><a href="#sobre">Sobre mim</a><a href="#consulta">A consulta</a><a href="#planos">Planos</a><a href="#investimento">Investimento</a><a href="#duvidas">Dúvidas</a></nav>
 <a class="button outline" href="#agendar">Agendar consulta <span aria-hidden="true">↗</span></a>
 </div>
 </header>
@@ -68,7 +68,39 @@
 <div><p class="eyebrow"><span></span> Investimento</p><h2>Consulta nutricional <em>completa.</em></h2><p>Avaliação física, plano alimentar personalizado e suporte pelo WhatsApp por 60 dias.</p><p>Se desejar uma nova avaliação após esse período, o valor da consulta permanece o mesmo.</p></div>
 <div class="price" id="agendar"><p class="eyebrow">Por consulta</p><p class="amount">R$ 230,00</p><p>Pagamento à vista ou em até 3x no cartão, com possível acréscimo das taxas da operadora.</p><a class="button primary" href="https://wa.me/5598991360718?text=Ol%C3%A1%2C%20Fabr%C3%ADcia%21%20Gostaria%20de%20agendar%20uma%20consulta%20nutricional.">Agendar pelo WhatsApp <span aria-hidden="true">↗</span></a></div>
 </section>
-<section class="section soft" id="duvidas"><div class="wrap faq"><div><p class="eyebrow"><span></span> Perguntas frequentes</p><h2>Ficou alguma <em>dúvida?</em></h2></div><div>
+<section class="section soft" id="planos"><div class="wrap">
+<p class="eyebrow"><span></span> Planos de acompanhamento nutricional</p>
+<h2>Escolha o seu <em>plano.</em></h2>
+<p class="section-lead">Seu objetivo merece acompanhamento, estratégia e constância! Escolha o plano que melhor se encaixa na sua rotina e vamos construir resultados juntos.</p>
+<div class="plans">
+<article class="plan">
+<p class="plan-num">Plano 01</p>
+<h3>Semestral <em>Essencial</em></h3>
+<p class="plan-tag">3 consultas ao longo de 6 meses</p>
+<p class="plan-price">R$ 660,00</p>
+<p class="plan-parc">ou 6x de R$ 130,31 na maquininha</p>
+<button class="button outline plan-open" type="button" data-plan="essencial">Ver detalhes</button>
+</article>
+<article class="plan featured">
+<p class="plan-badge">Mais completo</p>
+<p class="plan-num">Plano 02</p>
+<h3>Premium <em>Intensivo</em></h3>
+<p class="plan-tag">6 consultas ao longo de 6 meses</p>
+<p class="plan-price">R$ 1.260,00</p>
+<p class="plan-parc">ou 7x de R$ 218,25 na maquininha</p>
+<button class="button outline plan-open" type="button" data-plan="premium">Ver detalhes</button>
+</article>
+<article class="plan">
+<p class="plan-num">Plano 03</p>
+<h3><em>Casadinha</em></h3>
+<p class="plan-tag">Duas pessoas, dois planejamentos, uma condição especial</p>
+<p class="plan-price">R$ 420,00 <small>a dupla</small></p>
+<p class="plan-parc">R$ 210,00 por pessoa · ou 4x de R$ 119,45 na maquininha</p>
+<button class="button outline plan-open" type="button" data-plan="casadinha">Ver detalhes</button>
+</article>
+</div>
+</div></section>
+<section class="section" id="duvidas"><div class="wrap faq"><div><p class="eyebrow"><span></span> Perguntas frequentes</p><h2>Ficou alguma <em>dúvida?</em></h2></div><div>
 <details><summary>O valor é mensal?</summary><p>O pagamento de R$ 230,00 é feito por consulta e inclui avaliação, plano alimentar personalizado e 60 dias de suporte via WhatsApp.</p></details>
 <details><summary>Onde fica o consultório?</summary><p>Após o agendamento, você recebe o endereço e as orientações para o atendimento.</p></details>
 <details><summary>Como faço para agendar?</summary><p>Toque em “Agendar pelo WhatsApp” para falar diretamente comigo e combinar seu atendimento.</p><a class="under" href="#agendar">Ir para o agendamento <span aria-hidden="true">↗</span></a></details>
@@ -78,4 +110,134 @@
 <a class="brand" href="#inicio"><span class="monogram" aria-hidden="true">fm</span><span>Fabrícia Mendes<small>Nutricionista</small></span></a>
 <a class="under" href="https://www.instagram.com/fabriciamendesnutri/">Instagram <span aria-hidden="true">↗</span></a>
 </div></footer>
+
+<dialog class="plan-modal" id="plan-modal" aria-labelledby="plan-modal-title">
+<button class="plan-close" type="button" aria-label="Fechar detalhes do plano">×</button>
+<p class="plan-num" id="plan-modal-num"></p>
+<h3 id="plan-modal-title"></h3>
+<p class="plan-modal-tag" id="plan-modal-tag"></p>
+<p class="plan-price" id="plan-modal-price"></p>
+<h4>O que está incluso</h4>
+<ul id="plan-modal-list"></ul>
+<h4>Ideal para</h4>
+<p class="plan-modal-ideal" id="plan-modal-ideal"></p>
+<p class="plan-modal-extra" id="plan-modal-extra"></p>
+<p class="plan-parc" id="plan-modal-parc"></p>
+<a class="button primary" id="plan-modal-cta" href="#">Quero este plano <span aria-hidden="true">↗</span></a>
+<p class="plan-modal-note">Ao escolher, você fala direto comigo no WhatsApp.</p>
+</dialog>
+
+<script>
+(function () {
+  var WHATS = "https://wa.me/5598991360718?text=";
+  var PLANS = {
+    essencial: {
+      num: "Plano 01 · Semestral Essencial",
+      title: "Semestral Essencial",
+      tag: "3 consultas ao longo de 6 meses",
+      price: "R$ 660,00",
+      list: [
+        "Consulta inicial com avaliação completa.",
+        "Retorno a cada 2 meses.",
+        "Reavaliação e acompanhamento da evolução.",
+        "Ajustes no planejamento alimentar.",
+        "Suporte via WhatsApp entre as consultas."
+      ],
+      ideal: "Pacientes que já possuem uma boa autonomia alimentar e precisam de acompanhamento periódico para manter a constância, ajustar estratégias e continuar evoluindo.",
+      extra: "",
+      parc: "Parcelamento na maquininha: 6x de R$ 130,31 (com juros).",
+      msg: "Olá, Fabrícia! Tenho interesse no Plano Semestral Essencial (3 consultas em 6 meses, R$ 660,00). Pode me passar mais informações?"
+    },
+    premium: {
+      num: "Plano 02 · Premium Intensivo",
+      title: "Premium Intensivo",
+      tag: "6 consultas ao longo de 6 meses",
+      price: "R$ 1.260,00",
+      list: [
+        "Consulta inicial com avaliação completa.",
+        "Acompanhamento com retornos mensais.",
+        "Avaliação contínua da evolução.",
+        "Ajustes frequentes no planejamento alimentar.",
+        "Estratégias nutricionais individualizadas.",
+        "Suporte via WhatsApp entre as consultas."
+      ],
+      ideal: "Pacientes que buscam emagrecimento, hipertrofia, mudança de hábitos e que precisam de um acompanhamento mais próximo, com direcionamento frequente e ajustes estratégicos para alcançar seus objetivos.",
+      extra: "",
+      parc: "Parcelamento na maquininha: 7x de R$ 218,25 (com juros).",
+      msg: "Olá, Fabrícia! Tenho interesse no Plano Premium Intensivo (6 consultas em 6 meses, R$ 1.260,00). Pode me passar mais informações?"
+    },
+    casadinha: {
+      num: "Plano 03 · Casadinha",
+      title: "Casadinha",
+      tag: "Duas pessoas, dois planejamentos, uma condição especial!",
+      price: "R$ 420,00 a dupla (R$ 210,00 por pessoa)",
+      list: [
+        "1 consulta individual para cada pessoa.",
+        "Avaliação nutricional individual.",
+        "Planejamento alimentar personalizado.",
+        "Orientações nutricionais individualizadas.",
+        "Suporte via WhatsApp para dúvidas sobre o planejamento."
+      ],
+      ideal: "Casais, amigas, familiares ou pessoas que desejam iniciar uma mudança de hábitos juntas, aproveitando uma condição especial para realizar suas consultas nutricionais.",
+      extra: "Economia de R$ 40,00 na dupla!",
+      parc: "Parcelamento na maquininha: 4x de R$ 119,45 (com juros).",
+      msg: "Olá, Fabrícia! Tenho interesse no Plano Casadinha (R$ 420,00 a dupla). Pode me passar mais informações?"
+    }
+  };
+
+  var modal = document.getElementById("plan-modal");
+  var els = {
+    num: document.getElementById("plan-modal-num"),
+    title: document.getElementById("plan-modal-title"),
+    tag: document.getElementById("plan-modal-tag"),
+    price: document.getElementById("plan-modal-price"),
+    list: document.getElementById("plan-modal-list"),
+    ideal: document.getElementById("plan-modal-ideal"),
+    extra: document.getElementById("plan-modal-extra"),
+    parc: document.getElementById("plan-modal-parc"),
+    cta: document.getElementById("plan-modal-cta")
+  };
+
+  function openPlan(key) {
+    var p = PLANS[key];
+    if (!p) return;
+    els.num.textContent = p.num;
+    els.title.textContent = p.title;
+    els.tag.textContent = p.tag;
+    els.price.textContent = p.price;
+    els.list.innerHTML = "";
+    p.list.forEach(function (item) {
+      var li = document.createElement("li");
+      li.textContent = item;
+      els.list.appendChild(li);
+    });
+    els.ideal.textContent = p.ideal;
+    els.extra.textContent = p.extra;
+    els.extra.hidden = !p.extra;
+    els.parc.textContent = p.parc;
+    els.cta.href = WHATS + encodeURIComponent(p.msg);
+    if (typeof modal.showModal === "function") {
+      modal.showModal();
+    } else {
+      window.location.href = els.cta.href;
+    }
+  }
+
+  document.querySelectorAll(".plan-open").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      openPlan(btn.getAttribute("data-plan"));
+    });
+  });
+
+  modal.querySelector(".plan-close").addEventListener("click", function () {
+    modal.close();
+  });
+
+  modal.addEventListener("click", function (event) {
+    if (event.target === modal) {
+      modal.close();
+    }
+  });
+})();
+</script>
 </body></html>
