@@ -30,3 +30,40 @@
     aspect-ratio: 4 / 3;
   }
 }
+
+/* Planos de acompanhamento */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+.plan{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:7px;padding:clamp(22px,3vw,32px);display:flex;flex-direction:column;align-items:flex-start}
+.plan.featured{border-color:#bb8c77;box-shadow:0 14px 40px #35231914}
+.plan-badge{position:absolute;top:-13px;right:18px;background:var(--accent);color:#fffaf3;font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:5px 12px;border-radius:999px}
+.plan-num{font-size:.71rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#874733;margin-bottom:12px}
+.plan h3{font-size:1.75rem}
+.plan-tag{color:var(--muted);margin-top:10px;font-size:.95rem}
+.plan-price{font:400 clamp(2rem,3vw,2.6rem)/1.15 var(--serif);color:var(--accent);letter-spacing:-.04em;margin-top:16px}
+.plan-price small{font-size:.45em;color:var(--muted);letter-spacing:0}
+.plan-parc{font-size:.85rem;color:var(--muted);margin-top:6px}
+.plan .plan-open{margin-top:22px;width:100%}
+
+.plan-modal{border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink);padding:clamp(26px,4vw,44px);width:min(620px,calc(100% - 32px));max-height:min(82vh,900px);overflow-y:auto;box-shadow:0 30px 90px #24181266}
+.plan-modal::backdrop{background:#24181299;backdrop-filter:blur(3px)}
+.plan-modal[open]{animation:plan-in .22s ease-out}
+@keyframes plan-in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.plan-close{position:absolute;top:12px;right:14px;border:1px solid var(--line);background:var(--cream);color:var(--ink);width:40px;height:40px;border-radius:50%;font-size:1.3rem;line-height:1;cursor:pointer}
+.plan-close:hover{background:#e6d8c9}
+.plan-modal h3{font-size:clamp(2rem,4vw,2.7rem);letter-spacing:-.04em}
+.plan-modal-tag{color:var(--muted);margin-top:8px}
+.plan-modal .plan-price{margin-top:14px}
+.plan-modal h4{font:700 .74rem/1.3 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:#874733;margin:22px 0 4px}
+.plan-modal ul{list-style:none;padding:0;margin:6px 0 0}
+.plan-modal li{padding:7px 0;border-bottom:1px solid var(--line);color:var(--muted)}
+.plan-modal li:last-child{border-bottom:0}
+.plan-modal li::before{content:"✓";margin-right:10px;color:var(--accent)}
+.plan-modal-ideal{color:var(--muted);margin-top:6px}
+.plan-modal-extra{margin-top:12px;font-weight:700;color:var(--accent)}
+.plan-modal .plan-parc{margin-top:10px}
+.plan-modal .button{margin-top:24px;width:100%}
+.plan-modal-note{text-align:center;font-size:.82rem;color:var(--muted);margin-top:12px}
+
+@media(max-width:980px){.plans{grid-template-columns:1fr;max-width:560px;margin-inline:auto}}
+@media(prefers-reduced-motion:reduce){.plan-modal[open]{animation:none}}
+.plan p.plan-badge{color:#fffaf3}
