@@ -66,4 +66,4 @@
 
 @media(max-width:980px){.plans{grid-template-columns:1fr;max-width:560px;margin-inline:auto}}
 @media(prefers-reduced-motion:reduce){.plan-modal[open]{animation:none}}
-.plan p.plan-badge{color:#fffaf3}
+.plan p.plan-badge{color:#fffaf3} .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px} .review{background:var(--paper);border:1px solid var(--line);border-radius:7px;padding:25px;display:flex;flex-direction:column;gap:14px} .review .stars{color:var(--accent);letter-spacing:3px} .review .review-text{color:var(--muted);flex:1} .review .review-author{font-weight:700} .review .review-author small{display:block;font-weight:400;color:var(--muted);margin-top:2px} @media(max-width:980px){.reviews{grid-template-columns:1fr;max-width:560px;margin-inline:auto}}
